@@ -23,4 +23,7 @@ urlpatterns = [
     path('goods/',include('df_goods.urls')),
     path('tinymce/',include('tinymce.urls')),
     path('cart/',include('df_cart.urls')),
+    path('order/',include('df_order.urls')),
+    path('search/',include('haystack.urls')),
+
 ]

@@ -37,4 +37,25 @@ def add(requset,gid,count):
     else:
         return redirect('/cart/')
 
+@user_decorator.login
+def edit(requset,cart_id,count):
+    try:
+        cart = CartInfo.objects.get(pk=cart_id)
+        count1 = count
+        cart.count = count
+        cart.save()
+        data = {'ok':0}
+    except Exception as e:
+        data = {'ok':count1}
+        # print(11 )
+    return JsonResponse(data)
+
+def delete(request,id):
+    try:
+        cart = CartInfo.objects.get(pk = id)
+        cart.delete()
+        data = {'ok':1}
+    except Exception as e:
+        data = {'ok':0}
+    return JsonResponse(data)
 

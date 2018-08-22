@@ -7,4 +7,6 @@ urlpatterns = [
 
     path('',views.cart),
     path('<int:gid>/<int:count>/',views.add),
+    path('edit/<int:cart_id>/<int:count>/',views.edit),
+    path('delete/<int:id>/',views.delete),
 ]
